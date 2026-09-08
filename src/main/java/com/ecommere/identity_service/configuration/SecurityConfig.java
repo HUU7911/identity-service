@@ -32,6 +32,11 @@ public class SecurityConfig {
             "/auth/logout"
     };
 
+    @NonFinal
+    private final String[] AUTHENTICATE_ENDPOINTS = {
+            "/internal/users/create"
+    };
+
     @Autowired
     private CustomJwtDecoder customJwtDecoder;
 
@@ -40,6 +45,7 @@ public class SecurityConfig {
         http.authorizeHttpRequests(requests ->
                 requests.requestMatchers(HttpMethod.POST, PUBLIC_MATCHERS).permitAll()
                         .requestMatchers(HttpMethod.GET, "/users").hasRole(RoleDefine.ADMIN.name())
+                        .requestMatchers(HttpMethod.POST, AUTHENTICATE_ENDPOINTS).hasRole(RoleDefine.ADMIN.name())
                         .anyRequest().authenticated()
         );
 

@@ -55,6 +55,27 @@ public class UserService {
         return userMapper.toUserResponse(userRepository.save(user));
     }
 
+    @Transactional
+    public UserResponse internalCreateUser(UserCreationRequest request){
+        if (userRepository.existsByUsername(request.getUsername()))
+            throw new AppException(ErrorCode.USER_NOT_EXISTS);
+
+        User user = userMapper.toUser(request);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+
+        HashSet<Role> roles = new HashSet<>();
+        roleRepository.findById(RoleDefine.STAFF.name()).ifPresent(roles::add);
+        user.setRoles(roles);
+
+        try {
+            user =  userRepository.save(user);
+        }catch (AppException e){
+            throw new AppException(ErrorCode.USER_NOT_EXISTS);
+        }
+
+        return userMapper.toUserResponse(userRepository.save(user));
+    }
+
     @PreAuthorize("hasRole('ADMIN')")
     public UserResponse getUserById(String id){
         User user = userRepository.findById(id).orElseThrow(
