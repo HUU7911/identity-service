@@ -111,6 +111,8 @@ public class AuthenticationService {
                         .grantType(GRANT_TYPE)
                 .build());
 
+        log.info("Outbound Identity Token: {}", response);
+
         return AuthenticationResponse.builder()
                 .token(response.getAccessToken())
                 .authenticated(true)

@@ -17,6 +17,7 @@ public enum ErrorCode {
     UNCATEGORIZED(9999, "uncategorized", HttpStatus.INTERNAL_SERVER_ERROR),
     USER_NOT_EXISTS(1005, "user not exists", HttpStatus.NOT_FOUND),
     UNAUTHENTICATED(1006, "unauthenticated", HttpStatus.UNAUTHORIZED),
+    USER_NOT_FOUND(1007, "user not found", HttpStatus.NOT_FOUND),
     ;
 
     int code;

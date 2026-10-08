@@ -2,6 +2,7 @@ package com.huumod.identity.controller;
 
 import com.huumod.identity.dto.ApiResponse;
 import com.huumod.identity.dto.request.UserCreationRequest;
+import com.huumod.identity.dto.request.UserUpdateRequest;
 import com.huumod.identity.dto.response.UserResponse;
 import com.huumod.identity.service.UserService;
 import lombok.AccessLevel;
@@ -53,6 +54,13 @@ public class UserController {
     ApiResponse<UserResponse> getMyInFor() {
         return ApiResponse.<UserResponse>builder()
                 .results(userService.getMyInfor())
+                .build();
+    }
+
+    @PutMapping("/update")
+    ApiResponse<UserResponse> updateUser(@RequestBody UserUpdateRequest request) {
+        return ApiResponse.<UserResponse>builder()
+                .results(userService.updateUser(request))
                 .build();
     }
 }

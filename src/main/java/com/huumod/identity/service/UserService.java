@@ -2,6 +2,7 @@ package com.huumod.identity.service;
 
 import com.huumod.identity.constant.RoleDefine;
 import com.huumod.identity.dto.request.UserCreationRequest;
+import com.huumod.identity.dto.request.UserUpdateRequest;
 import com.huumod.identity.dto.response.UserResponse;
 import com.huumod.identity.entity.Role;
 import com.huumod.identity.entity.User;
@@ -90,6 +91,19 @@ public class UserService {
                 .stream()
                 .map(userMapper::toUserResponse)
                 .toList();
+    }
+
+    public UserResponse updateUser(UserUpdateRequest request){
+        String userId = SecurityContextHolder.getContext().getAuthentication().getName();
+
+        var user = userRepository.findById(userId).orElseThrow(
+                () -> new AppException(ErrorCode.USER_NOT_FOUND)
+        );
+
+        userMapper.updateUser(user, request);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+
+        return userMapper.toUserResponse(user);
     }
 
     public void deleteUserById(String id){
