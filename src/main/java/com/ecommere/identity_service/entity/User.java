@@ -1,5 +1,6 @@
 package com.ecommere.identity_service.entity;
 
+import com.ecommere.identity_service.convert.EncryptConverter;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -22,15 +23,20 @@ public class User {
     @Column(name = "Id")
     String id;
 
+    @Convert(converter = EncryptConverter.class)
     String username;
+
     String password;
 
     @Column(name = "firstname")
+    @Convert(converter = EncryptConverter.class)
     String firstName;
 
     @Column(name = "lastname")
+    @Convert(converter = EncryptConverter.class)
     String lastName;
 
+    @Convert(converter = EncryptConverter.class)
     String email;
 
     LocalDate birthDate;
