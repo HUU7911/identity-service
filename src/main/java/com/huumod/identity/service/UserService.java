@@ -34,11 +34,10 @@ public class UserService {
 
     @Transactional
     public UserResponse createUser(UserCreationRequest request){
-        if (userRepository.existsByUsername(request.getUsername()))
+        if (userRepository.existsByEmail(request.getEmail()))
             throw new AppException(ErrorCode.USER_NOT_EXISTS);
 
         User user = userMapper.toUser(request);
-
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         HashSet<Role> roles = new HashSet<>();
@@ -57,7 +56,7 @@ public class UserService {
 
     @Transactional
     public UserResponse internalCreateUser(UserCreationRequest request){
-        if (userRepository.existsByUsername(request.getUsername()))
+        if (userRepository.existsByEmail(request.getEmail()))
             throw new AppException(ErrorCode.USER_NOT_EXISTS);
 
         User user = userMapper.toUser(request);

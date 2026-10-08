@@ -2,6 +2,7 @@ package com.ecommere.identity_service.entity;
 
 import com.ecommere.identity_service.convert.EncryptConverter;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -14,18 +15,20 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "Users")
+@Table(name = "users")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "Id")
     String id;
 
+    @Column(name = "username", nullable = false, unique = true)
     @Convert(converter = EncryptConverter.class)
     String username;
 
+    @Size(min = 6)
+    @Column(name = "password", unique = true)
     String password;
 
     @Column(name = "firstname")
@@ -36,9 +39,11 @@ public class User {
     @Convert(converter = EncryptConverter.class)
     String lastName;
 
+    @Column(name = "email")
     @Convert(converter = EncryptConverter.class)
     String email;
 
+    @Column(name = "birthdate")
     LocalDate birthDate;
 
     @ManyToMany(fetch = FetchType.EAGER)
