@@ -1,12 +1,14 @@
 package com.ecommere.identity_service.convert;
 
 import jakarta.persistence.AttributeConverter;
+import jakarta.persistence.Converter;
 import org.springframework.stereotype.Component;
 
 import java.util.Base64;
 import java.util.Objects;
 
 @Component
+@Converter
 public class EncryptConverter implements AttributeConverter<String, String> {
     @Override
     public String convertToDatabaseColumn(String attribute) {
