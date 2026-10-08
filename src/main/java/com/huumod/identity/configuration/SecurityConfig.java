@@ -26,10 +26,12 @@ public class SecurityConfig {
 
     @NonFinal
     private final String[] PUBLIC_MATCHERS = {
-            "/users/reate",
+            "/users/create",
             "/auth/login",
             "/auth/introspect",
-            "/auth/logout"
+            "/auth/logout",
+            "/auth/refresh",
+            "/auth/outbound/identity"
     };
 
     @NonFinal
