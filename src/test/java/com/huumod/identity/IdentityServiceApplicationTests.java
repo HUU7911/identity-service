@@ -1,4 +1,4 @@
-package com.ecommere.identity_service;
+package com.huumod.identity;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

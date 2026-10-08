@@ -1,17 +1,15 @@
-package com.ecommere.identity_service.service;
+package com.huumod.identity.service;
 
-import com.ecommere.identity_service.dto.request.AuthenticationRequest;
-import com.ecommere.identity_service.dto.request.IntrospectRequest;
-import com.ecommere.identity_service.dto.request.LogoutRequest;
-import com.ecommere.identity_service.dto.request.RefreshTokenRequest;
-import com.ecommere.identity_service.dto.response.AuthenticationResponse;
-import com.ecommere.identity_service.dto.response.IntrospectResponse;
-import com.ecommere.identity_service.entity.InvalidateToken;
-import com.ecommere.identity_service.entity.User;
-import com.ecommere.identity_service.exception.AppException;
-import com.ecommere.identity_service.exception.ErrorCode;
-import com.ecommere.identity_service.repository.InvalidateTokenRepository;
-import com.ecommere.identity_service.repository.UserRepository;
+import com.huumod.identity.dto.request.*;
+import com.huumod.identity.dto.response.AuthenticationResponse;
+import com.huumod.identity.dto.response.IntrospectResponse;
+import com.huumod.identity.entity.InvalidateToken;
+import com.huumod.identity.entity.User;
+import com.huumod.identity.exception.AppException;
+import com.huumod.identity.exception.ErrorCode;
+import com.huumod.identity.repository.InvalidateTokenRepository;
+import com.huumod.identity.repository.UserRepository;
+import com.huumod.identity.repository.httpclient.OutboundIdentityClient;
 import com.nimbusds.jose.*;
 import com.nimbusds.jose.crypto.MACSigner;
 import com.nimbusds.jose.crypto.MACVerifier;
@@ -20,6 +18,7 @@ import com.nimbusds.jwt.SignedJWT;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import lombok.experimental.NonFinal;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -42,6 +41,7 @@ public class AuthenticationService {
 
     final UserRepository userRepository;
     final InvalidateTokenRepository invalidateTokenRepository;
+    final OutboundIdentityClient outboundIdentityClient;
 
     @Value("${jwt.signerKey}")
     String SIGNER_KEY;
@@ -51,6 +51,18 @@ public class AuthenticationService {
 
     @Value("${jwt.refreshable-duration}")
     int refreshableDuration;
+
+    @Value("${app.config.client-id}")
+    String clientId;
+
+    @Value("${app.config.client-secret}")
+    String clientSecret;
+
+    @Value("${app.config.redirect-url}")
+    String redirectUrl;
+
+    @NonFinal
+    final String GRANT_TYPE = "authorization_code";
 
     public IntrospectResponse introspect(IntrospectRequest request) {
         String token = request.getToken();
@@ -85,6 +97,22 @@ public class AuthenticationService {
 
         return AuthenticationResponse.builder()
                 .token(token)
+                .authenticated(true)
+                .build();
+    }
+
+    public AuthenticationResponse outboundIdentity(String code) {
+
+        var response = outboundIdentityClient.exchangeToken(ExchangeTokenRequest.builder()
+                        .code(code)
+                        .clientId(clientId)
+                        .clientSecret(clientSecret)
+                        .redirectUri(redirectUrl)
+                        .grantType(GRANT_TYPE)
+                .build());
+
+        return AuthenticationResponse.builder()
+                .token(response.getAccessToken())
                 .authenticated(true)
                 .build();
     }

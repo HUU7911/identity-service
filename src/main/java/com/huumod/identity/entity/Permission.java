@@ -1,4 +1,4 @@
-package com.ecommere.identity_service.entity;
+package com.huumod.identity.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

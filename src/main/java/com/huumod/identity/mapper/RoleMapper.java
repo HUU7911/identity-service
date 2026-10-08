@@ -1,8 +1,8 @@
-package com.ecommere.identity_service.mapper;
+package com.huumod.identity.mapper;
 
-import com.ecommere.identity_service.dto.request.RoleRequest;
-import com.ecommere.identity_service.dto.response.RoleResponse;
-import com.ecommere.identity_service.entity.Role;
+import com.huumod.identity.dto.request.RoleRequest;
+import com.huumod.identity.dto.response.RoleResponse;
+import com.huumod.identity.entity.Role;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

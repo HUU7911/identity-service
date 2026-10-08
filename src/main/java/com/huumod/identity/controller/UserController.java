@@ -1,9 +1,9 @@
-package com.ecommere.identity_service.controller;
+package com.huumod.identity.controller;
 
-import com.ecommere.identity_service.dto.ApiResponse;
-import com.ecommere.identity_service.dto.request.UserCreationRequest;
-import com.ecommere.identity_service.dto.response.UserResponse;
-import com.ecommere.identity_service.service.UserService;
+import com.huumod.identity.dto.ApiResponse;
+import com.huumod.identity.dto.request.UserCreationRequest;
+import com.huumod.identity.dto.response.UserResponse;
+import com.huumod.identity.service.UserService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;

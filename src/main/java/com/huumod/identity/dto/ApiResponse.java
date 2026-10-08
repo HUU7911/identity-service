@@ -1,4 +1,4 @@
-package com.ecommere.identity_service.dto;
+package com.huumod.identity.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;

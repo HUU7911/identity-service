@@ -1,4 +1,4 @@
-package com.ecommere.identity_service.constant;
+package com.huumod.identity.constant;
 
 public enum RoleDefine {
     USER,

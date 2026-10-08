@@ -1,15 +1,15 @@
-package com.ecommere.identity_service.service;
+package com.huumod.identity.service;
 
-import com.ecommere.identity_service.constant.RoleDefine;
-import com.ecommere.identity_service.dto.request.UserCreationRequest;
-import com.ecommere.identity_service.dto.response.UserResponse;
-import com.ecommere.identity_service.entity.Role;
-import com.ecommere.identity_service.entity.User;
-import com.ecommere.identity_service.exception.AppException;
-import com.ecommere.identity_service.exception.ErrorCode;
-import com.ecommere.identity_service.mapper.UserMapper;
-import com.ecommere.identity_service.repository.RoleRepository;
-import com.ecommere.identity_service.repository.UserRepository;
+import com.huumod.identity.constant.RoleDefine;
+import com.huumod.identity.dto.request.UserCreationRequest;
+import com.huumod.identity.dto.response.UserResponse;
+import com.huumod.identity.entity.Role;
+import com.huumod.identity.entity.User;
+import com.huumod.identity.exception.AppException;
+import com.huumod.identity.exception.ErrorCode;
+import com.huumod.identity.mapper.UserMapper;
+import com.huumod.identity.repository.RoleRepository;
+import com.huumod.identity.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;

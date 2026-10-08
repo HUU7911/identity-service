@@ -1,4 +1,4 @@
-package com.ecommere.identity_service.dto.request;
+package com.huumod.identity.dto.request;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

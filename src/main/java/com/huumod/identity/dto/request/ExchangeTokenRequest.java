@@ -3,15 +3,15 @@ package com.huumod.identity.dto.request;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import java.util.Set;
-
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class RoleRequest {
-    String name;
-    String description;
-    Set<String> permissions;
+public class ExchangeTokenRequest {
+    String code;
+    String clientId;
+    String clientSecret;
+    String redirectUri;
+    String grantType;
 }

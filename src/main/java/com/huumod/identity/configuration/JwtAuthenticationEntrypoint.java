@@ -1,7 +1,7 @@
-package com.ecommere.identity_service.configuration;
+package com.huumod.identity.configuration;
 
-import com.ecommere.identity_service.dto.ApiResponse;
-import com.ecommere.identity_service.exception.ErrorCode;
+import com.huumod.identity.dto.ApiResponse;
+import com.huumod.identity.exception.ErrorCode;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.MediaType;

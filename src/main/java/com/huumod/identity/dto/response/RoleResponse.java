@@ -1,6 +1,6 @@
-package com.ecommere.identity_service.dto.response;
+package com.huumod.identity.dto.response;
 
-import com.ecommere.identity_service.entity.Permission;
+import com.huumod.identity.entity.Permission;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 

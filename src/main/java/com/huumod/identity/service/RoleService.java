@@ -1,11 +1,10 @@
-package com.ecommere.identity_service.service;
+package com.huumod.identity.service;
 
-import com.ecommere.identity_service.dto.request.RoleRequest;
-import com.ecommere.identity_service.dto.response.RoleResponse;
-import com.ecommere.identity_service.entity.Role;
-import com.ecommere.identity_service.mapper.RoleMapper;
-import com.ecommere.identity_service.repository.PermissionRepository;
-import com.ecommere.identity_service.repository.RoleRepository;
+import com.huumod.identity.dto.request.RoleRequest;
+import com.huumod.identity.dto.response.RoleResponse;
+import com.huumod.identity.mapper.RoleMapper;
+import com.huumod.identity.repository.PermissionRepository;
+import com.huumod.identity.repository.RoleRepository;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;

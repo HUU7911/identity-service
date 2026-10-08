@@ -1,4 +1,4 @@
-package com.ecommere.identity_service.dto.response;
+package com.huumod.identity.dto.response;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;

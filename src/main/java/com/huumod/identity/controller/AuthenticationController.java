@@ -1,21 +1,18 @@
-package com.ecommere.identity_service.controller;
+package com.huumod.identity.controller;
 
-import com.ecommere.identity_service.dto.ApiResponse;
-import com.ecommere.identity_service.dto.request.AuthenticationRequest;
-import com.ecommere.identity_service.dto.request.IntrospectRequest;
-import com.ecommere.identity_service.dto.request.LogoutRequest;
-import com.ecommere.identity_service.dto.request.RefreshTokenRequest;
-import com.ecommere.identity_service.dto.response.AuthenticationResponse;
-import com.ecommere.identity_service.dto.response.IntrospectResponse;
-import com.ecommere.identity_service.service.AuthenticationService;
+import com.huumod.identity.dto.ApiResponse;
+import com.huumod.identity.dto.request.AuthenticationRequest;
+import com.huumod.identity.dto.request.IntrospectRequest;
+import com.huumod.identity.dto.request.LogoutRequest;
+import com.huumod.identity.dto.request.RefreshTokenRequest;
+import com.huumod.identity.dto.response.AuthenticationResponse;
+import com.huumod.identity.dto.response.IntrospectResponse;
+import com.huumod.identity.service.AuthenticationService;
 import com.nimbusds.jose.JOSEException;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 
@@ -58,6 +55,13 @@ public class AuthenticationController {
 
         return ApiResponse.<AuthenticationResponse>builder()
                 .results(results)
+                .build();
+    }
+
+    @PostMapping("/outbound/identity")
+    ApiResponse<AuthenticationResponse> outboundIdentity(@RequestParam("code") String code) {
+        return ApiResponse.<AuthenticationResponse>builder()
+                .results(authenticationService.outboundIdentity(code))
                 .build();
     }
 }

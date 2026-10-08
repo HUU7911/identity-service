@@ -1,6 +1,6 @@
-package com.ecommere.identity_service.entity;
+package com.huumod.identity.entity;
 
-import com.ecommere.identity_service.convert.EncryptConverter;
+import com.huumod.identity.convert.EncryptConverter;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import lombok.*;

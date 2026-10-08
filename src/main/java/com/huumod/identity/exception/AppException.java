@@ -1,4 +1,4 @@
-package com.ecommere.identity_service.exception;
+package com.huumod.identity.exception;
 
 import lombok.Getter;
 

@@ -1,6 +1,6 @@
-package com.ecommere.identity_service.configuration;
+package com.huumod.identity.configuration;
 
-import com.ecommere.identity_service.constant.RoleDefine;
+import com.huumod.identity.constant.RoleDefine;
 import lombok.experimental.NonFinal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

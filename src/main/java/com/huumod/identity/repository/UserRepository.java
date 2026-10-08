@@ -1,6 +1,6 @@
-package com.ecommere.identity_service.repository;
+package com.huumod.identity.repository;
 
-import com.ecommere.identity_service.entity.User;
+import com.huumod.identity.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

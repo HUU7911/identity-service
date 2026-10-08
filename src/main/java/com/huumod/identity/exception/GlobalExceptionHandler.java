@@ -1,6 +1,6 @@
-package com.ecommere.identity_service.exception;
+package com.huumod.identity.exception;
 
-import com.ecommere.identity_service.dto.ApiResponse;
+import com.huumod.identity.dto.ApiResponse;
 import jakarta.validation.ConstraintViolation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

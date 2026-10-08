@@ -1,8 +1,8 @@
-package com.ecommere.identity_service.mapper;
+package com.huumod.identity.mapper;
 
-import com.ecommere.identity_service.dto.request.PermissionRequest;
-import com.ecommere.identity_service.dto.response.PermissionResponse;
-import com.ecommere.identity_service.entity.Permission;
+import com.huumod.identity.dto.request.PermissionRequest;
+import com.huumod.identity.dto.response.PermissionResponse;
+import com.huumod.identity.entity.Permission;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

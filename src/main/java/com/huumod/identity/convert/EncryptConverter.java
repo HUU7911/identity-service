@@ -1,4 +1,4 @@
-package com.ecommere.identity_service.convert;
+package com.huumod.identity.convert;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;

@@ -1,7 +1,7 @@
-package com.ecommere.identity_service.configuration;
+package com.huumod.identity.configuration;
 
-import com.ecommere.identity_service.dto.request.IntrospectRequest;
-import com.ecommere.identity_service.service.AuthenticationService;
+import com.huumod.identity.dto.request.IntrospectRequest;
+import com.huumod.identity.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

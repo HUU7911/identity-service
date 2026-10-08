@@ -1,8 +1,8 @@
-package com.ecommere.identity_service.mapper;
+package com.huumod.identity.mapper;
 
-import com.ecommere.identity_service.dto.request.UserCreationRequest;
-import com.ecommere.identity_service.dto.response.UserResponse;
-import com.ecommere.identity_service.entity.User;
+import com.huumod.identity.dto.request.UserCreationRequest;
+import com.huumod.identity.dto.response.UserResponse;
+import com.huumod.identity.entity.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
